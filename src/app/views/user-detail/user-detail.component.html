@@ -1,1 +1,24 @@
-<p>user-detail works!</p>
+<nz-table #basicTable [nzData]="userData">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>User</th>
+      <th>e-mail</th>
+      <th>Ciudad</th>
+      <th>Website</th>
+      <th>Empresa</th>
+      <th>Álbunes</th>
+      <th>Todos</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of userData">
+      <td>{{data.name}}</td>
+      <td>{{data.username}}</td>
+      <td>{{data.email}}</td>
+      <td>{{data.address.street}}, {{data.address.city}}</td>
+      <td>{{data.website}}</td>
+      <td>{{data.company.name}}</td>
+    </tr>
+  </tbody>
+</nz-table>

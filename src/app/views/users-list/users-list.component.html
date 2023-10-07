@@ -1,1 +1,18 @@
-<p>user-list works!</p>
+<section style="display: flex; flex-direction: column; margin: 5vh, 10vw">
+  <nz-list
+    *ngIf="usersData"
+    nzBordered
+    nzHeader="Lista de Usuarios"
+    style="width: 50vw; margin: auto"
+  >
+    <nz-list-item
+      *ngFor="let item of usersData"
+      [routerLink]="['/users/', item.id]"
+    >
+      <span nz-typography
+        ><mark>{{ item.name }}</mark></span
+      >
+      Username: {{ item.username }}
+    </nz-list-item>
+  </nz-list>
+</section>

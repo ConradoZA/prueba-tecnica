@@ -14,7 +14,6 @@ export class HttpService {
   getAllUsers = async (): Promise<any> => {
     try {
       const { data } = await this.axios.get('/users');
-      console.log(data);
       return data;
     } catch (error) {
       console.log(error);
@@ -42,10 +41,12 @@ export class HttpService {
   getAlbumPhotos = async (albumId: string): Promise<any> => {
     try {
       const { data } = await this.axios.get(`/albums`);
-      const filtered = data.filter((dat: { albumId: string; }) => dat.albumId === albumId);
+      const filtered = data.filter(
+        (dat: { albumId: string }) => dat.albumId === albumId
+      );
 
-      localStorage.setItem("recent", JSON.stringify(filtered));
-      
+      localStorage.setItem('recent', JSON.stringify(filtered));
+
       return filtered;
     } catch (error) {
       console.log(error);
@@ -55,7 +56,9 @@ export class HttpService {
   getUserToDos = async (user: string): Promise<any> => {
     try {
       const { data } = await this.axios.get(`/todos`);
-      const filtered = data.filter((dat: { userId: string; }) => dat.userId === user);
+      const filtered = data.filter(
+        (dat: { userId: string }) => dat.userId === user
+      );
       return filtered;
     } catch (error) {
       console.log(error);
